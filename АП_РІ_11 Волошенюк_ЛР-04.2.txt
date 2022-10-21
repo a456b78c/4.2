@@ -1,0 +1,59 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	double x, xp, xk, dx, A, B, y;
+	double e = exp(1.0);
+	cout << "xp = "; cin >> xp;
+	cout << "xk = "; cin >> xk;
+	cout << "dx = "; cin >> dx;
+	cout << fixed;
+	cout << "---------------------------" << endl;
+	cout << "|" << setw(5) << "x" << " |"
+		<< setw(7) << "y" << " |" << endl;
+	cout << "---------------------------" << endl;
+	x = xp;
+	double ss = ((pow(e, x)) + fabs(x));
+	double zz = pow(ss, 2);
+	while (x <= xk)
+	{
+		A = (2 / x + fabs(x));
+		if (x < 0)
+			B = (1 + 4 * x * x);
+		else
+			if (x > 2)
+				B = (5 * sin(x * x + 1));
+			else
+				
+				B = zz;
+		y = A + B;
+		cout << "|" << setw(7) << setprecision(2) << x
+			<< " |" << setw(10) << setprecision(3) << y
+			<< " |" << endl;
+		x += dx;
+	}
+	cout << "---------------------------" << endl;
+	return 0;
+}
+
+
+/*
+* ss = ((pow(e, x)) + fabs(x));
+double zz = pow(ss, 2);
+
+if (x < 0)
+	B = (2 / x + fabs(x) + 1 + 4 * x * x);
+
+else if (x > 2)
+B = ((2 / x + fabs(x)) + (5 * sin(x * x + 1)));
+else
+B = (2 / x + fabs(x)) + zz;
+double
+y = A + B;
+
+cout << "y = " << y;
+*/ 
